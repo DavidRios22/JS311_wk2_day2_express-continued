@@ -1,20 +1,25 @@
 const express = require("express");
+const { dirname } = require("path");
 const app = express();
 app.use(express.static("/public"))
-
 
 const port = process.env.PORT || 4001;
 
 app.use(express.json())
 
-//display page
-const commentsDisplay = require("./data/comments")
-const contactsDisplay = require("./data/contacts")
-const productsDisplay = require("./data/products")
-const vehiclesDisplay = require("./data/vehicles")
+// frontend
+const path = require("path")
+app.set("views", path.join(__dirname, "views"))
+app.set("view engine", "ejs")
+
 app.get("/", (req, res) => {
-    res.json(vehiclesDisplay)
+    const commentsData = (JSON.stringify(require("./data/comments")).split('}').join("<br><br>"));
+    const contactsData = (JSON.stringify(require("./data/contacts")).split('}').join("<br><br>"));
+    const productsData = (JSON.stringify(require("./data/products")).split('}').join("<br><br>"));
+    const vehiclesData = (JSON.stringify(require("./data/vehicles")).split('}').join("<br><br>"));
+    res.render("index", {commentsData: commentsData, contactsData: contactsData, productsData: productsData, vehiclesData: vehiclesData})
 })
+//
 
 //comments section
 const comments = require("./routes/commentsRoutes")

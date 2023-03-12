@@ -1,3 +1,7 @@
+const hello = () => {
+    console.log("hello");
+}
+
 const comments = require("../data/comments")
 
 const list = (req, res) => {
@@ -21,12 +25,26 @@ const show = (req, res) => {
     }
 }
 
+// const create = (req, res) => {
+//     console.log("POST /comments");
+
+//     let newComment = {
+//         "_id": getRandomInt(),
+//         "body": req.body.body,
+//         "postId": 1 
+//     }
+
+//     comments.push(newComment)
+//     res.json(newComment)
+    
+// }
+
 const create = (req, res) => {
     console.log("POST /comments");
 
     let newComment = {
         "_id": getRandomInt(),
-        "body": req.body.body,
+        "body": document.getElementById("commentsBody").innerHTML,
         "postId": 1 
     }
 
