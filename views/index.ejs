@@ -10,33 +10,122 @@
 
 <body>
 
-    <script src="../index.js"></script>
+    <h1>Comments</h1>
+    <button onclick="hideComments()" id="commentsButton">Show</button>
 
-    <details>
-        <summary>Comments Data</summary>
-        <p><%- commentsData %></p>
-    </details>
-    <textarea placeholder="Enter body" id="commentsBody"></textarea>
-    <button onclick="hello()"></button>
+    <form method="POST" action="/comments">
+        <label for="commentsBody">Body:</label>
+        <input type="text" id="commentsBody" name="commentsBody">
 
-    <details>
-        <summary>Contacts Data</summary>
-        <p><%- contactsData %></p>
-    </details>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="commentsData" style="display: none"><%- commentsData %></p>
 
 
-    <details>
-        <summary>Products Data</summary>
-        <p><%- productsData %></p>
-    </details>
+
+    <h1>Contacts</h1>
+    <button onclick="hideContacts()" id="contactsButton">Show</button>
+    <form method="POST" action="/contacts">
+        <label for="contactsName">Name:</label>
+        <input type="text" id="contactsName" name="contactsName">
+
+        <label for="contactsOccupation">Occupation:</label>
+        <input type="text" id="contactsOccupation" name="contactsOccupation">
+
+        <label for="contactsAvatar">Avatar:</label>
+        <input type="text" id="contactsAvatar" name="contactsAvatar">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="contactsData" style="display: none"><%- contactsData %></p>
 
 
-    <details>
-        <summary>Vehicles Data</summary>
-        <p><%- vehiclesData %></p>
-    </details>
+
+    <h1>Products</h1>
+    <button onclick="hideProducts()" id="productsButton">Show</button>
+    <form method="POST" action="/products">
+        <label for="productsName">Name:</label>
+        <input type="text" id="productsName" name="productsName">
+
+        <label for="prodcutsDescription">Description:</label>
+        <input type="text" id="prodcutsDescription" name="prodcutsDescription">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="productsData" style="display: none"><%- productsData %></p>
 
 
+
+
+    <h1>Vehicles</h1>
+    <button onclick="hideVehicles()" id="vehiclesButton">Show</button>
+    <form method="POST" action="/vehicles">
+        <label for="vehiclesYear">Year:</label>
+        <input type="text" id="vehiclesYear" name="vehiclesYear">
+
+        <label for="vehiclesMake">Make:</label>
+        <input type="text" id="vehiclesMake" name="vehiclesMake">
+
+        <label for="vehiclesModel">Model:</label>
+        <input type="text" id="vehiclesModel" name="vehiclesModel">
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <p id="vehiclesData" style="display: none"><%- vehiclesData %></p>
+
+
+
+    <script>
+        const hideComments = () => {
+            var x = document.getElementById("commentsData");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                document.getElementById("commentsButton").innerHTML = "Hide"
+            } else {
+                x.style.display = "none";
+                document.getElementById("commentsButton").innerHTML = "Show"
+            }
+        }
+
+        const hideContacts = () => {
+            var x = document.getElementById("contactsData");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                document.getElementById("contactsButton").innerHTML = "Hide"
+            } else {
+                x.style.display = "none";
+                document.getElementById("contactsButton").innerHTML = "Show"
+            }
+        }
+
+        const hideProducts = () => {
+            var x = document.getElementById("productsData");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                document.getElementById("productsButton").innerHTML = "Hide"
+            } else {
+                x.style.display = "none";
+                document.getElementById("productsButton").innerHTML = "Show"
+            }
+        }
+
+        const hideVehicles = () => {
+            var x = document.getElementById("vehiclesData");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                document.getElementById("vehiclesButton").innerHTML = "Hide"
+            } else {
+                x.style.display = "none";
+                document.getElementById("vehiclesButton").innerHTML = "Show"
+            }
+        }
+
+    </script>
 </body>
 
 </html>

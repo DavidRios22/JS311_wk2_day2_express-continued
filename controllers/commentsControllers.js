@@ -25,26 +25,12 @@ const show = (req, res) => {
     }
 }
 
-// const create = (req, res) => {
-//     console.log("POST /comments");
-
-//     let newComment = {
-//         "_id": getRandomInt(),
-//         "body": req.body.body,
-//         "postId": 1 
-//     }
-
-//     comments.push(newComment)
-//     res.json(newComment)
-    
-// }
-
 const create = (req, res) => {
     console.log("POST /comments");
 
     let newComment = {
         "_id": getRandomInt(),
-        "body": document.getElementById("commentsBody").innerHTML,
+        "body": req.body.body,
         "postId": 1 
     }
 
@@ -52,6 +38,20 @@ const create = (req, res) => {
     res.json(newComment)
     
 }
+
+// const create = (req, res) => {
+//     console.log("POST /comments");
+
+//     let newComment = {
+//         "_id": getRandomInt(),
+//         "body": document.getElementById("commentsBody").innerHTML,
+//         "postId": 1 
+//     }
+
+//     comments.push(newComment)
+//     res.json(newComment)
+    
+// }
 
 const getRandomInt = () => {
     let randomFloat = Math.random();
