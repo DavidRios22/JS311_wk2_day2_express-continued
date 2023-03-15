@@ -35,9 +35,8 @@ const getRandomInt = () => {
     return randomInt;
 }
 
-// comments input
+// inputs for frontend
 const commentsPLEASE = require("./data/comments")
-
 app.post('/comments', (req, res) => {
     const commentsBody = req.body.commentsBody
 
@@ -53,9 +52,7 @@ app.post('/comments', (req, res) => {
 })
 
 
-// contacts input
 const contactsPLEASE = require("./data/contacts")
-
 app.post('/contacts', (req, res) => {
     const contactsName = req.body.contactsName
     const contactsOccupation = req.body.contactsOccupation
@@ -72,9 +69,8 @@ app.post('/contacts', (req, res) => {
     res.json(newContact)
 })
 
-// products input
-const productsPLEASE = require("./data/products")
 
+const productsPLEASE = require("./data/products")
 app.post('/products', (req, res) => {
     const productsName = req.body.productsName
     const productsDescription = req.body.productsDescription
@@ -90,9 +86,8 @@ app.post('/products', (req, res) => {
     res.json(newProduct)
 })
 
-// vehicles input
-const vehiclesPLEASE = require("./data/vehicles")
 
+const vehiclesPLEASE = require("./data/vehicles")
 app.post('/vehicles', (req, res) => {
     const vehiclesYear = req.body.vehiclesYear
     const vehiclesMake = req.body.vehiclesMake
@@ -110,19 +105,16 @@ app.post('/vehicles', (req, res) => {
   })
 //
 
-//comments section
+//routes section
 const comments = require("./routes/commentsRoutes")
 app.use("/comments", comments)
 
-//contacts section
 const contacts = require("./routes/contactsRoutes")
 app.use("/contacts", contacts)
 
-//products section
 const products = require("./routes/productsRoutes")
 app.use("/products", products)
 
-//vehicles section
 const vehicles = require("./routes/vehiclesRoutes")
 app.use("/vehicles", vehicles)
 
